@@ -1,9 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchProducts = createAsyncThunk('product' , async ()=>{
-     const data = await axios.get("https://dummyjson.com/products");
+     const data = await fetch("https://dummyjson.com/products");
+     let response = await data.json();
       return response.products;
 });
+
+/* export const fetchProducts = createAsyncThunk('product' , async ()=>{
+     const data = await axios.get("https://dummyjson.com/products");
+      return response.products;
+    }); */
 
 const initialState = {
     items :[],
